@@ -1,0 +1,78 @@
+{
+	"name": "whatsapp_item",
+	"title": "Item",
+	"width": 500,
+	"defaults": {},
+	"templates": {
+		"render": "./templates/template.php",
+		"content": "./templates/content.php"
+	},
+	"fields": {
+		"option": {
+			"label": "Seleccione una opción",
+			"type": "select",
+			"options": {
+				"Seleccione una opción": "",
+				"WhatsApp": "whatsapp",
+				"Messenger": "messenger",
+				"Telegram": "telegram"
+			},
+			"attrs": {
+				"id": "option_select"
+			}
+		},
+		"title": {
+			"label": "Nombre o Área",
+			"type": "text",
+			"attrs": {
+				"placeholder": "Ingresa área"
+			}
+		},
+
+		"meta": {
+			"label": "Texto Adicional",
+			"type": "text",
+			"attrs": {
+				"placeholder": "Ingresa texto adicional"
+			}
+		},
+
+		"link": {
+			"label": "Link redireccionamiento",
+			"type": "text",
+			"description": "Ingrese el Link de los chats que va a utilizar. Ejemplo de WhatsApp: https://api.whatsapp.com/send?phone=51987654321",
+			"show": "option && option!='whatsapp'",
+			"attrs": {
+				"placeholder": "Ingresa Link"
+			}
+		},
+		"telef": {
+			"label": "Número",
+			"type": "text",
+			"description": "Ingrese el número de teléfono WhatsApp que va a utilizar. Ejemplo de WhatsApp: +51912345678",
+			"show": "option && option=='whatsapp'",
+			"attrs": {
+				"placeholder": "Ingresa Número"
+			}
+		},
+		"mensaje": {
+			"label": "Mensaje de WhatsApp",
+			"type": "text",
+			"description": "Ingrese el mensaje que va a enviar a los usuarios. Ejemplo de WhatsApp: Hola ¿deseo información?",
+			"show": "option && option=='whatsapp'",
+			"attrs": {
+				"placeholder": "Ingresa mensaje a mostrar en el WhatsApp"
+			}
+		},
+		"icon": {
+			"label": "Icono WhatsApp",
+			"type": "icon",
+			"description": "Seleccione un icono para el Avatar"
+		}
+	},
+	"fieldset": {
+		"default": {
+			"fields": ["option", "title", "meta", "telef", "mensaje", "link", "icon"]
+		}
+	}
+}

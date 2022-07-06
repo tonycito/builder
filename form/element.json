@@ -1,0 +1,481 @@
+{
+    "name": "formulario",
+    "title": "Formulario",
+    "group": "multiple items",
+    "icon": "${url:images/icon.svg}",
+    "iconSmall": "${url:images/iconSmall.svg}",
+    "element": true,
+    "templates": {
+        "render": "./templates/template.php",
+        "content": "./templates/content.php"
+    },
+    "fields": {
+        "content": {
+            "label": "Items",
+            "type": "content-items",
+            "item": "form_item"
+        },
+        "sender": {
+            "label": "Enviar correo desde",
+            "description": "Ingrese un correo solo si el usuario no ingresará uno",
+            "type": "text"
+        },
+        "copytosender": {
+            "label": "Enviar una copia",
+            "type": "checkbox",
+            "text": "Permita que el usuario reciba una copia del correo"
+        },
+        "copytosender_name": {
+            "label": "Etiqueta",
+            "default": "Enviarme una copia",
+            "type": "text",
+            "show": "copytosender"
+        },
+        "copytosender_text": {
+            "label": "Descripción",
+            "default": "Quiero recibir una copia del correo",
+            "type": "text",
+            "show": "copytosender"
+        },
+        "recipient": {
+            "label": "Correo del destinatario",
+            "type": "text"
+        },
+        "cc": {
+            "label": "Enviar una copia",
+            "type": "text"
+        },
+        "bcc": {
+            "label": "Enviar una copia oculta",
+            "type": "text"
+        },
+        "subject": {
+            "label": "Asunto para el Administrador",
+            "type": "text",
+            "default": "Nuevo correo enviado desde la web"
+        },
+        "header": {
+          "label": "Encabezado del correo",
+          "type": "editor",
+          "mode": "text/html",
+          "default": ""
+        },
+        "footer": {
+          "label": "Pie de página del correo",
+          "type": "editor",
+          "mode": "text/html",
+          "default": ""
+        },
+        "attach_data": {
+          "label": "Adjuntar CSV en el correo",
+          "description": "Los datos se guardaran en un archivo CSV y se adjuntará en el correo",
+          "type": "select",
+          "default": "",
+          "options": {
+            "No": "",
+            "Si": "csv"
+          }
+        },
+        "drive": {
+            "label": "Guardar los datos en Google Drive",
+            "type": "checkbox",
+            "text": "Guardar en una Hoja de Cálculo"
+        },
+        "drive_link": {
+            "label": "URL de la Aplicación Web obtenida en Google Drive",
+            "description": "Siga <a href='https://buho.la/ayuda' target='_blank'>estas instrucciones</a> para conectar su Drive con este formulario.",
+            "type": "text",
+            "show": "drive"
+        },
+        "recipient_subject": {
+          "label": "Asunto para el usuario",
+          "type": "text",
+          "default": "Gracias por su mensaje"
+        },
+        "recipient_header": {
+          "label": "Encabezado del correo del usuario",
+          "type": "editor",
+          "mode": "text/html",
+          "default": ""
+        },
+        "recipient_footer": {
+          "label": "Pie de página del correo del usuario",
+          "type": "editor",
+          "mode": "text/html",
+          "default": ""
+        },
+        "form_title": {
+            "label": "Title",
+            "type": "text",
+            "default": ""
+        },
+        "form_card": {
+            "label": "Estilo del formulario",
+            "type": "select",
+            "default": "none",
+            "options": {
+                "None": "none",
+                "Default": "default",
+                "Primary": "primary",
+                "Secondary": "secondary"
+            }
+        },
+        "form_layout": {
+            "label": "Diseño del formulario",
+            "type": "Select",
+            "default": "stacked",
+            "options": {
+                "stacked": "stacked",
+                "horizontal": "horizontal"
+            }
+        },
+        "submit_text": {
+            "label": "Texto del botón enviar",
+            "default": "Enviar mensaje",
+            "type": "text"
+        },
+        "submit_button": {
+            "label": "Estilo del botón",
+            "default": "default",
+            "type": "select",
+            "options": {
+                "Default": "default",
+                "Primary": "primary",
+                "Secondary": "secondary",
+                "Danger": "danger",
+                "Text": "text",
+                "Link": "link"
+            }
+        },
+        "submit_width": {
+            "label": "Ancho",
+            "type": "select",
+            "default": "form-width-small",
+            "options": {
+                "Small": "form-width-small",
+                "Medium": "form-width-medium",
+                "Large": "form-width-large",
+                "Full Width": "width-1-1"
+            }
+        },
+        "submit_position": {
+            "label": "Position",
+            "type": "select",
+            "default": "left",
+            "options": {
+                "Left": "left",
+                "Center": "center",
+                "Right": "right"
+            }
+        },
+        "redirect": {
+            "label": "Redireccionar a URL",
+            "type": "text",
+            "default": "",
+            "description": "Opcional: Puede redirigir a los usuarios a una página de 'Gracias'"
+        },
+        "redirect_data": {
+            "label": "Incluir datos",
+            "type": "select",
+            "default": "",
+            "options": {
+                "No": "",
+                "Método GET": "GET",
+                "Método POST": "POST"
+            }
+        },
+        "hidden_post": {
+            "label": "URL para enviar datos POST ocultos",
+            "type": "text",
+            "default": "",
+            "description": "Los datos se envían ocultos a esta dirección como POST antes de redirigir. Puede publicar los datos de forma silenciosa en algún lugar sin necesidad de una página de agradecimiento en el lado POST."
+        },
+        "notification": {
+            "label": "Notificación luego de enviar mensaje",
+            "type": "checkbox",
+            "default": true,
+            "text": "Mostrar notificación"
+        },
+        "notification_style": {
+            "label": "Estilo",
+            "type": "select",
+            "default": "success",
+            "options": {
+                "Primary": "primary",
+                "Success": "success",
+                "Warning": "warning",
+                "Danger": "danger"
+            },
+            "show": "notification"
+        },
+        "notification_position": {
+            "label": "Posición",
+            "type": "select",
+            "default": "top-center",
+            "options": {
+                "Arriba Izquierda": "top-left",
+                "Arriba Centro": "top-center",
+                "Arriba Derecha": "top-right",
+                "Abajo Izquierda": "bottom-left",
+                "Abajo Centro": "bottom-center",
+                "Abajo Derecha": "bottom-right"
+            },
+            "show": "notification"
+        },
+        "notification_timeout": {
+            "label": "Timeout",
+            "description": "Valor en milisegundos (ejemplo: 5000 son 5 segundos) antes que la notificación se oculte",
+            "default": 5000,
+            "type": "text",
+            "show": "notification"
+        },
+        "confirmation_message": {
+            "label": "Mensaje de confirmación",
+            "type": "editor",
+            "mode": "text/html",
+            "default": "Recibimos su mensaje y le responderemos a la brevedad.",
+            "attrs": {
+                "debounce": 500
+            }
+        },
+        "recaptcha": {
+            "label": "Usar reCaptcha",
+            "description": "Primero debe habitar el reCaptcha en la configuración Global del sistema.",
+            "type": "checkbox",
+            "text": "Habilitar reCaptcha"
+        },
+        "recaptcha_position": {
+            "label": "Posición",
+            "type": "select",
+            "default": "left",
+            "options": {
+                "Left": "left",
+                "Center": "center",
+                "Right": "right"
+            },
+            "show": "recaptcha"
+        },
+        "modal": {
+            "label": "Abrir el formulario en un Modal",
+            "type": "select",
+            "options": {
+                "No": "",
+                "Usar Botón": "button",
+                "Usar ID": "id"
+            },
+            "default": ""
+        },
+        "modal_width": {
+          "label": "Ancho del Modal",
+          "description": "Por ejemplo 750px o 100%",
+          "show": "modal"
+        },
+        "modal_button_text": {
+            "label": "Texto de botón",
+            "show": "modal === 'button'"
+        },
+        "modal_id": {
+            "label": "ID único para el formulario",
+            "show": "modal"
+        },
+        "modal_button_style": {
+          "label": "Estilo",
+          "description": "Configure los estilos del botón.",
+          "type": "select",
+          "default": "default",
+          "options": {
+            "Default": "default",
+            "Primary": "primary",
+            "Secondary": "secondary",
+            "Danger": "danger",
+            "Text": "text"
+          },
+          "show": "modal === 'button'"
+        },
+        "modal_button_position": {
+            "label": "Posición",
+            "description": "Configure la posición del botón.",
+            "type": "select",
+            "default": "left",
+            "options": {
+                "Left": "left",
+                "Center": "center",
+                "Right": "right"
+            },
+            "show": "modal === 'button'",
+            "enable": "modal_button_width != 'uk-width-1-1'"
+        },
+        "modal_button_width": {
+            "label": "Width",
+            "description": "Configure el ancho del botón.",
+            "type": "select",
+            "default": "",
+            "options": {
+                "Default": "",
+                "Full Width": "uk-width-1-1"
+            },
+            "show": "modal === 'button'"
+        },
+        "modal_button_icon": {
+            "label": "Ícono del Botón",
+            "description": "Puede selecionar un icono para mostrar en el botón.",
+            "type": "icon",
+            "show": "modal === 'button'"
+        },
+        "modal_button_icon_align": {
+            "label": "Icon Alignment",
+            "description": "Choose the icon position.",
+            "type": "select",
+            "default": "left",
+            "options": {
+                "Left": "left",
+                "Right": "right"
+            },
+            "show": "modal_button_icon"
+        },
+        "maxwidth": "${builder:maxwidth}",
+        "maxwidth_breakpoint": "${builder:maxwidth_breakpoint}",
+        "block_align": "${builder.block_align}",
+        "block_align_breakpoint": "${builder.block_align_breakpoint}",
+        "block_align_fallback": "${builder.block_align_fallback}",
+        "margin": "${builder:margin}",
+        "margin_remove_top": "${builder:margin_remove_top}",
+        "margin_remove_bottom": "${builder:margin_remove_bottom}",
+        "item_animation": "${builder:animation}",
+        "visibility": "${builder:visibility}",
+        "name": "${builder:name}",
+        "status": "${builder:status}",
+        "id": "${builder:id}",
+        "class": "${builder:cls}",
+        "css": {
+            "label": "CSS",
+            "description": "Enter your own custom CSS. The following selectors will be prefixed automatically for this element: <code>.el-element</code>, <code>.el-item</code>, <code>.el-title</code>, <code>.el-meta</code>, <code>.el-content</code>, <code>.el-image</code>, <code>.el-link</code>",
+            "type": "editor",
+            "editor": "code",
+            "mode": "css",
+            "attrs": {
+                "debounce": 500
+            }
+        }
+        
+    },
+    "fieldset": {
+        "default": {
+            "type": "tabs",
+            "fields": [
+                {
+                    "title": "Content",
+                    "fields": [
+                        "content"
+                    ]
+                },
+                {
+                    "title": "Config",
+                    "fields": [
+                        "sender",
+                        "copytosender",
+                        "copytosender_name",
+                        "copytosender_text",
+                        "recipient",
+                        "cc",
+                        "bcc",
+                        "subject",
+                        "header",
+                        "footer",
+                        "attach_data",                    
+                        "drive" ,
+                        "drive_link",
+                        "recipient_subject",
+                        "recipient_header",
+                        "recipient_footer"
+                    ]
+                },
+                {
+                    "title": "Settings",
+                    "fields": [
+                        {
+                            "label": "Layout",
+                            "type": "group",
+                            "fields": [
+                                "form_title",
+                                "form_layout",
+                                "form_card"
+                            ]
+                        },
+                        {
+                            "label": "Botón Enviar",
+                            "type": "group",
+                            "fields": [
+                                "submit_text",
+                                "submit_button",
+                                "submit_width",
+                                "submit_position"
+
+                            ]
+                        },
+                        {
+                            "label": "Redirección",
+                            "type": "group",
+                            "fields": [
+                                "redirect",
+                                "redirect_data",
+                                "hidden_post"
+                            ]
+                        },
+                        {
+                            "label": "reCaptcha",
+                            "type": "group",
+                            "fields": [
+                                "recaptcha",
+                                "recaptcha_position"
+                            ]
+                        },
+                        {
+                            "label": "Botón Modal",
+                            "type": "group",
+                            "fields": [
+                                "modal",
+                                "modal_width",
+                                "modal_id",
+                                "modal_button_text",
+                                "modal_button_style",
+                                "modal_button_icon",
+                                "modal_button_icon_align",
+                                "modal_button_position",
+                                "modal_button_width"
+                            ]
+                        },
+                        {
+                            "label": "Notificación",
+                            "type": "group",
+                            "fields": [
+                                "notification",
+                                "notification_style",
+                                "notification_position",
+                                "notification_timeout"
+                            ]
+                        },
+                        "confirmation_message",
+                        {
+                            "label": "General",
+                            "type": "group",
+                            "fields": [
+                                "maxwidth",
+                                "maxwidth_breakpoint",
+                                "block_align",
+                                "block_align_breakpoint",
+                                "block_align_fallback",
+                                "margin",
+                                "margin_remove_top",
+                                "margin_remove_bottom",
+                                "item_animation",
+                                "visibility"
+                            ]
+                        }
+                    ]
+                },
+                "${builder:advanced}"
+            ]
+        }
+    }
+}

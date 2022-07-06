@@ -1,0 +1,87 @@
+{
+	"@import": "./element.php",
+	"name": "WhatsApp",
+	"title": "WhatsApp",
+	"group": "multiple items",
+	"icon": "${url:images/icon.svg}",
+	"iconSmall": "${url:images/iconSmall.svg}",
+	"element": true,
+	"container": true,
+	"width": 500,
+	"defaults": {
+		"select": 1,
+		"title": "¿En que podemos ayudarte?",
+		"texto1": "Estamos en linea, contáctanos con nosotros.",
+		"texto2": "Clica en cualquier área, para ayduarle.",
+		"texto3": "Nuestro horario de atención es de L a V de 9:00 a 18:00 hrs."
+	},
+	"templates": {
+		"render": "./templates/template.php",
+		"content": "./templates/content.php"
+	},
+	"fields": {
+		"content": {
+			"label": "Items",
+			"type": "content-items",
+			"title": "content",
+			"item": "whatsapp_item"
+		},
+
+		"title": {
+			"label": "Texto flotante",
+			"type": "text",
+			"attrs": {
+				"placeholder": "Ingrese texto"
+			}
+		},
+		"texto1": {
+			"label": "Título al abrir el chat",
+			"type": "text",
+			"attrs": {
+				"placeholder": "Ingrese título"
+			}
+		},
+		"texto2": {
+			"label": "Subtítulo",
+			"type": "text",
+			"attrs": {
+				"placeholder": "Ingrese subtítulo"
+			}
+		},
+		"texto3": {
+			"label": "Comentario adicional",
+			"type": "text",
+			"attrs": {
+				"placeholder": "Ingrese comentario"
+			}
+		},
+		"icon": {
+			"label": "Icono WhatsApp",
+			"type": "icon"
+		},
+		"radio": {
+			"label": "Posicion del Chat",
+			"type": "radio",
+			"name": "radio_group",
+			"options": {
+				"Derecha": "Derecha",
+				"Izquierda": "Izquierda"
+			}
+		}
+	},
+	"fieldset": {
+		"default": {
+			"type": "tabs",
+			"fields": [
+				{
+					"title": "Personas",
+					"fields": ["content"]
+				},
+				{
+					"title": "Configuracion",
+					"fields": ["title", "texto1", "texto2", "texto3", "icon", "radio"]
+				}
+			]
+		}
+	}
+}

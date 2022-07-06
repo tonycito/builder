@@ -1,0 +1,173 @@
+{
+    "name": "form_item",
+    "title": "Item",
+    "width": 500,
+    "placeholder": {
+        "props": {
+        }
+    },
+    "templates": {
+        "render": "./templates/template.php",
+        "content": "./templates/content.php"
+    },
+    "fields": {
+        "title": {
+            "label": "Nombre del campo",
+            "description": "Use un nombre corto sin espacios.",
+            "type": "text"
+        },
+        "input_type": {
+            "label": "Tipo campo",
+            "description": "Seleccione el tipo de campo según los datos que desea obtener",
+            "default": "input",
+            "type": "select",
+            "options": {
+                "Texto": "input",
+                "Selección": "select",
+                "Área de texto": "textarea",
+                "Radio": "radio",
+                "Checkbox": "checkbox",
+                "Políticas": "GDPR",
+                "Sección": "section"
+            }
+        },
+        "input_text_type": {
+            "label": "Tipo de texto",
+            "default": "text",
+            "type": "select",
+            "options": {
+                "Fecha": "date",
+                "Correo electrónico": "email",
+                "Adjuntar Archivo": "file",
+                "Número": "number",
+                "Teléfono": "tel",
+                "Texto": "text",
+                "Horario": "time",
+                "URL / Link": "url"
+            },
+            "show": "input_type == 'input'"
+        },
+        "input_label": {
+            "label": "Etiqueta",
+            "type": "text",
+            "show": "input_type !== 'section'"
+        },
+        "input_icon": {
+            "label": "Ícono",
+            "type": "icon",
+            "show": "input_type == 'input'"
+        },
+        "input_values": {
+            "label": "Valores",
+            "description": "Separe los valores con ';'",
+            "type": "textarea",
+            "attrs": {
+                "placeholder": "Separe los valores con ';', por ejemplo: 'Opción 1;Opción 2;Opción 3'",
+                "rows": 5
+            },
+            "show": "input_type == 'checkbox'  || input_type == 'radio' || input_type == 'select'"
+        },
+        "input_optgroup": {
+            "label": "Headline",
+            "default": "--Seleccionar--",
+            "type": "text",
+            "show": "input_type == 'select'"
+        },
+        "input_newline": {
+            "label": "Separar por linea",
+            "text": "cada opción",
+            "type": "checkbox",
+            "show": "input_type == 'checkbox'  || input_type == 'radio'"
+        },
+        "input_description": {
+            "label": "Descripción",
+            "description": "Añada una descripción opcionar en la parte inferior de este elemento.",
+            "type": "textarea",
+            "attrs": {
+                "rows": 3
+            },
+            "show": "input_type !== 'section'"
+        },
+        "input_section": {
+            "label": "Sección",
+            "type": "editor",
+            "mode": "text/html",
+            "default": "",
+            "show": "input_type == 'section'"
+        },
+        "input_rows": {
+            "label": "Filas",
+            "type": "number",
+            "default": 10,
+            "show": "input_type == 'textarea'"
+        },
+        "input_placeholder": {
+            "label": "Placeholder",
+            "type": "text",
+            "show": "input_type == 'textarea' || input_type == 'input'"
+        },
+        "input_gdpr": {
+            "label": "Política de privacidad",
+            "type": "editor",
+            "default": "Acepto que mis datos se utilizarán para procesar mi solicitud. (Puede encontrar más información en nuestra <a target=\"_blank\" href=\"#\"> política de privacidad</a>)",
+            "text": "Ingrese texto y enlace a la política de privacidad.",
+            "show": "input_type == 'GDPR'"
+        },
+        "input_required": {
+            "label": "Requerido",
+            "type": "checkbox",
+            "text": "Este campo es obligatorio.",
+            "show": "input_type !== 'section'"
+        },
+        "input_multiple": {
+            "label": "Múltiples archivos",
+            "type": "checkbox",
+            "text": "Permitir varios archivos.",
+            "show": "input_text_type == 'file'"
+        },
+        "input_width": {
+            "label": "Ancho",
+            "type": "select",
+            "default": "auto",
+            "options": {
+                "Auto": "auto",
+                "Small": "small",
+                "Medium": "medium",
+                "Large": "large"
+            }
+        },
+        "name": "${builder:name}",
+        "status": "${builder:status}",
+        "id": "${builder:id}",
+        "class": "${builder:cls}"
+
+    },
+    "fieldset": {
+        "default": {
+            "fields": [
+                "title",
+                {
+                    "label": "Input",
+                    "type": "group",
+                    "fields": [
+                        "input_type",
+                        "input_text_type",
+                        "input_values",
+                        "input_optgroup",
+                        "input_description",
+                        "input_newline",
+                        "input_rows",
+                        "input_placeholder",
+                        "input_required",
+                        "input_multiple"
+                    ]
+                },
+                "input_section",
+                "input_gdpr",
+                "input_label",
+                "input_icon",
+                "input_width"
+            ]
+        }
+    }
+}
